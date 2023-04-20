@@ -5,7 +5,7 @@ describe 'usuario visita tela inicial' do
         # Arrange
 
         # Act
-        visit('/')
+        visit root_path
 
         # Assert
         expect(page).to have_content('Galpões & Estoque')
@@ -19,7 +19,7 @@ describe 'usuario visita tela inicial' do
 
 
         # Act 
-        visit('/')
+        visit root_path
 
         # Assert
         expect(page).to have_content('Rio')
@@ -36,10 +36,10 @@ describe 'usuario visita tela inicial' do
 
     it 'e não existem galpões cadastrados' do
         # Arrange
-
+        # Apagar os galpões do teste anterior
 
         # Act
-        visit('/')
+        visit root_path
 
         # Assert
         expect(page).to have_content('Nenhum galpão cadastrado')

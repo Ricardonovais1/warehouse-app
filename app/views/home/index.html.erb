@@ -3,7 +3,7 @@
 <%= 'Nenhum galpão cadastrado' if @warehouses.empty? %>
 
 <% @warehouses.each do |w| %>
-    <h2><%= w.name %></h2>
+    <h2><%= link_to(w.name, warehouse_path(w.id)) %></h2>
     <ul>
         <li>Código: <%= w.code %></li>
         <li>Cidade: <%= w.city %></li>
