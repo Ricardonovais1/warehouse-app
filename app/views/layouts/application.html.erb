@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WarehouseApp</title>
+    <title>Warehouse App - Feito na Campus Code</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +10,24 @@
   </head>
 
   <body>
+    <header>
+      <h1>Galpões & Estoque</h1>
+      <nav>
+        <ul>
+          <li><%= link_to 'Fornecedores', suppliers_path %></li>
+          <li><%= link_to 'Novo Fornecedor',new_supplier_path %></li>
+        </ul>
+      </nav>
+   
+        
+    </header>
+    <main>
+      <% if notice %>
+        <div>
+            <h5> <%= notice %></h5>
+        </div>
+      <% end %>
+    </main>
     <%= yield %>
   </body>
 </html>

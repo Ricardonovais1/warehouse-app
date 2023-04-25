@@ -1,0 +1,34 @@
+<h1>Fornecedores: </h1>
+<% if notice %>
+    <div>
+        <h5> <%= notice %></h5>
+    </div>
+<% end %>
+
+<% if @suppliers.any? %>
+    <table>
+        <thead>
+            <tr>
+                <th>Fornecedor</th>
+                <th>Localização</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @suppliers.each do |s| %>
+                <tr>
+                    <td><%= link_to s.corporate_name, s %><td>
+                    <td><%= s.full_address %><td>
+                <tr>
+            <% end %>
+        </tbody>
+    </table>
+<% else %>
+<div>
+    <h5>Nenhum fornecedor cadastrado</h5>
+</div>
+
+<% end %>
+
+
+
+

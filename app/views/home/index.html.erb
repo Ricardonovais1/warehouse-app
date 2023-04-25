@@ -1,13 +1,27 @@
 <h1>Galpões & Estoque</h1>
 
-<%= 'Nenhum galpão cadastrado' if @warehouses.empty? %>
 
-<% @warehouses.each do |w| %>
-    <h2><%= link_to(w.name, warehouse_path(w.id)) %></h2>
-    <ul>
-        <li>Código: <%= w.code %></li>
-        <li>Cidade: <%= w.city %></li>
-        <li>Área: <%= w.area %> m²</li>
-    </ul>
-    
-<% end %>
+
+<section id="warehouses">
+
+    <%= 'Nenhum galpão cadastrado' if @warehouses.empty? %>
+
+    <h1>Galpões</h1>
+    <% if notice %>
+       <h5> <%= notice %></h5>
+    <% end %>
+    <p><%= link_to('Cadastrar galpão', new_warehouse_path) %></p>
+
+    <div>
+        <% @warehouses.each do |w| %>
+            <h3><%= link_to(w.name, warehouse_path(w.id)) %></h3>
+            <ul>
+                <li>Código: <%= w.code %></li>
+                <li>Cidade: <%= w.city %></li>
+                <li>Área: <%= w.area %> m²</li>
+            </ul>
+            
+        <% end %>
+    </div>
+
+</section>
