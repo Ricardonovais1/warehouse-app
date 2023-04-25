@@ -9,7 +9,6 @@ describe 'Usuário acessa detalhes do fornecedor' do
             state: 'Minas Gerais', email: 'av@av.com')
         s.save()
         
-        
         # Act 
         visit root_path
         click_on 'Fornecedores'
@@ -24,8 +23,5 @@ describe 'Usuário acessa detalhes do fornecedor' do
         expect(page).to have_content 'Cidade: Belo Horizonte'
         expect(page).to have_content 'Estado: Minas Gerais'
         expect(page).to have_content 'Email: av@av.com'
-
     end
-
-
 end

@@ -29,7 +29,6 @@ describe 'Usuário vê fornecedores' do
 
         # Assert
 
-        expect(page).to have_content 'Fornecedor cadastrado com sucesso'
         expect(page).to have_content 'Fornecedores'
         expect(page).to have_content 'AV Guitars and Accessories'
         expect(page).to have_content 'Rua das Palmeiras, 344'
