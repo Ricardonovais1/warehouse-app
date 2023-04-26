@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Usuário cadastra um fornecedos' do 
+describe 'Usuário cadastra um fornecedor' do 
     it 'a partir no menu' do 
         # Arrange 
 
@@ -24,7 +24,7 @@ describe 'Usuário cadastra um fornecedos' do
         end
         fill_in 'Razão social', with: 'Souza comércio de roupas e acessórios LTDA'
         fill_in 'Nome fantasia', with: 'Magazine Souza'
-        fill_in 'CNPJ', with: '1234'
+        fill_in 'CNPJ', with: 1234567891234
         fill_in 'Endereço', with: 'Av. das Américas, 3200'
         fill_in 'Cidade', with: 'São Paulo'
         fill_in 'Estado', with: 'SP'

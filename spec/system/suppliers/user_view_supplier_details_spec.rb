@@ -4,7 +4,7 @@ describe 'Usuário acessa detalhes do fornecedor' do
     it 'com sucesso' do 
         # Arrange
         s = Supplier.new(corporate_name: 'AV Guitars and Accessories', brand_name: 'Amigo Violão', 
-            registration_number: 12345, full_address: 'Rua das Palmeiras, 344', 
+            registration_number: 1234567891234, full_address: 'Rua das Palmeiras, 344', 
             city: 'Belo Horizonte',
             state: 'Minas Gerais', email: 'av@av.com')
         s.save()

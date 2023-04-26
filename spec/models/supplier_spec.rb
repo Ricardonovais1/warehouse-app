@@ -170,5 +170,41 @@ RSpec.describe Supplier, type: :model do
           expect(result).to eq false
         end
     end
+
+    context 'length' do 
+      it 'true when registration_number is 13 characters long' do
+        # Arrange 
+        s = Supplier.new(corporate_name: 'AV Guitars and Accessories', 
+                        brand_name: 'Amigo Violão', 
+                        registration_number: 1234567891234, 
+                        full_address: 'Rua das Palmeiras, 344', 
+                        city: 'Belo Horizonte',
+                        state: 'Minas Gerais', 
+                        email: 'av@av.com')
+
+        # Act
+        result = s.valid?
+
+        # Assert
+        expect(result).to eq true
+      end
+
+      it 'false when registration_number is NOT 13 characters long' do
+        # Arrange 
+        s = Supplier.new(corporate_name: 'AV Guitars and Accessories', 
+                        brand_name: 'Amigo Violão', 
+                        registration_number: 12345, 
+                        full_address: 'Rua das Palmeiras, 344', 
+                        city: 'Belo Horizonte',
+                        state: 'Minas Gerais', 
+                        email: 'av@av.com')
+
+        # Act
+        result = s.valid?
+
+        # Assert
+        expect(result).to eq false
+      end
+    end
   end
 end
