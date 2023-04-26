@@ -1,16 +1,16 @@
 <h1>Fornecedor <%= @supplier.registration_number %></h1>
-<p>Razão social: <%= @supplier.corporate_name %> </p>
-<p>Nome fantasia: <%= @supplier.brand_name %> </p>
+<p>Razão social: <%= @supplier.corporate_name %></p>
+<p>Nome fantasia: <%= @supplier.brand_name %></p>
 <p>Endereço: <%= @supplier.full_address %></p>
-<p>CNPJ: <%= @supplier.registration_number %> m²</p>
+<p>CNPJ: <%= @supplier.registration_number %></p>
 <p>Cidade: <%= @supplier.city %></p>
 <p>Estado: <%= @supplier.state %></p>
 <p>Email: <%= @supplier.email %></p>
 
-<div>
-    <%# <p><%= link_to('Editar Fornecedor', banana_path) %></p> %>
-</div>
 
+<div>
+    <p><%= link_to('Editar Fornecedor', edit_supplier_path(@supplier.id)) %></p>
+</div>
 <div>
     <p><%= link_to('Início', root_path) %></p>
 </div>

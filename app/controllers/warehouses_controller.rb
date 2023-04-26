@@ -21,7 +21,7 @@ class WarehousesController < ApplicationController
     def edit; end
 
     def update 
-        if @warehouse.update(warehouse_params )
+        if @warehouse.update(warehouse_params)
            redirect_to warehouse_path(@warehouse), notice: 'Galpão atualizado com sucesso'
         else  
             flash.now[:notice] = 'Não foi possível atualizar o galpão'
@@ -41,6 +41,12 @@ class WarehousesController < ApplicationController
     end
 
     def warehouse_params 
-        @warehouse_params = params.require(:warehouse).permit(:name, :code, :city, :description, :cep, :address, :area)
+        @warehouse_params = params.require(:warehouse).permit(:name, 
+                                                              :code, 
+                                                              :city, 
+                                                              :description, 
+                                                              :cep, 
+                                                              :address, 
+                                                              :area)
     end
 end
