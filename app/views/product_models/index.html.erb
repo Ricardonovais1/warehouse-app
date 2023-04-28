@@ -1,0 +1,29 @@
+<h1>Modelos de produtos</h1>
+
+<% if @product_models.any? %>
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Fabricante</th>
+                <th>SKU</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @product_models.each do |pm| %>
+                <tr>
+                    <td><%= pm.name %></td>
+                    <td><%=  pm.supplier.brand_name %><td>
+                    <td><%= pm.sku %><td>
+                <tr>
+            <% end %>
+        </tbody>
+    </table>
+<% else %>
+<div>
+    <h5>Não há nenhum modelo de produto cadastrado</h5>
+</div>
+<% end %>
+<div>
+    <p><%= link_to 'Cadastrar modelo de produto', new_product_model_path %></p>
+</div>

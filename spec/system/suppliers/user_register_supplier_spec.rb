@@ -1,17 +1,18 @@
 require 'rails_helper'
 
 describe 'Usuário cadastra um fornecedor' do 
-    it 'a partir no menu' do 
+    it 'a partir da tela de fornecedores' do 
         # Arrange 
 
         # Act
         visit root_path
         within('nav') do
-            click_on 'Novo Fornecedor'
+            click_on 'Fornecedores'
         end
 
         # Assert
-        expect(current_path).to eq new_supplier_path
+        expect(current_path).to eq suppliers_path
+        expect(page).to have_content 'Novo Fornecedor'
     end
 
     it 'com sucesso' do
@@ -20,8 +21,9 @@ describe 'Usuário cadastra um fornecedor' do
         # Act 
         visit root_path
         within('nav') do
-            click_on 'Novo Fornecedor'
+            click_on 'Fornecedores'
         end
+        click_on 'Novo Fornecedor'
         fill_in 'Razão social', with: 'Souza comércio de roupas e acessórios LTDA'
         fill_in 'Nome fantasia', with: 'Magazine Souza'
         fill_in 'CNPJ', with: 1234567891234
@@ -43,8 +45,9 @@ describe 'Usuário cadastra um fornecedor' do
         # Act
         visit root_path 
         within('nav') do
-            click_on 'Novo Fornecedor'
+            click_on 'Fornecedores'
         end
+        click_on 'Novo Fornecedor'
         fill_in 'Razão social', with: ''
         fill_in 'Nome fantasia', with: ''
         fill_in 'CNPJ', with: ''
@@ -63,6 +66,5 @@ describe 'Usuário cadastra um fornecedor' do
         expect(page).to have_content('Cidade não pode ficar em branco')
         expect(page).to have_content('Estado não pode ficar em branco')
         expect(page).to have_content('Email não pode ficar em branco')
-        
     end
 end
