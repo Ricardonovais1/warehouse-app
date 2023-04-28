@@ -4,6 +4,7 @@ pt-BR:
       warehouse: 'Galpão'
       supplier: 'Fornecedor'
       product_model: 'Modelo de produto'
+      user: 'Usuário'
     attributes:
       warehouse:
         name: 'Nome'
@@ -30,5 +31,9 @@ pt-BR:
         sku: 'SKU'
         supplier_id: 'Fornecedor'
         supplier: 'Fornecedor'
+      user:
+        name: 'Nome'
+        email: 'Email'
+        password: 'Senha'
 
       # will translate User attribute "login" as "Handle"

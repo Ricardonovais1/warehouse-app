@@ -16,18 +16,22 @@
         <ul>
           <li><%= link_to 'Fornecedores', suppliers_path %></li>
           <li><%= link_to 'Modelos de produtos',product_models_path %></li>
+          <% if user_signed_in? %>
+            <li><%= current_user.email %></li>
+            <li>Olá <%= current_user.name %>!</li>
+            <li><%= button_to 'Sair', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'Entrar', new_user_session_path %></li>
+          <% end %>
         </ul>
       </nav>
    
         
     </header>
     <main>
-      <% if notice %>
-        <div>
-            <h5><%= notice %></h5>
-        </div>
-      <% end %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
     </main>
-    <%= yield %>
   </body>
 </html>
