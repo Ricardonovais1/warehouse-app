@@ -11,8 +11,14 @@ class OrdersController < ApplicationController
   def create 
     @order = Order.new(params.require(:order).permit(:warehouse_id, :supplier_id, :estimated_delivery_date))
     @order.user = current_user
-    @order.save!
-    redirect_to @order, notice: 'Pedido cadastrado com sucesso'
+    if @order.save
+      redirect_to @order, notice: 'Pedido cadastrado com sucesso'
+    else  
+      @warehouses = Warehouse.all
+      @suppliers = Supplier.all
+      flash.now[:alert] = 'Não foi possível cadastrar o pedido'
+      render :new
+    end
   end
 
   def show; end

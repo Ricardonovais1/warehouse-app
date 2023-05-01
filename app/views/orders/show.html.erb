@@ -1,4 +1,4 @@
-<h1>Detalhes do <%= Order.model_name.human %></h1>
+<h1><%= Order.model_name.human %> <%= @order.code %></h1>
 
 <p><%= Order.human_attribute_name(:warehouse_id) %>: <%= @order.warehouse.name %></p>
 <p><%= Order.human_attribute_name(:supplier_id) %>: <%= @order.supplier.corporate_name %></p>
