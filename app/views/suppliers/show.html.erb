@@ -1,11 +1,11 @@
-<h1>Fornecedor <%= @supplier.registration_number %></h1>
-<p>Razão social: <%= @supplier.corporate_name %></p>
-<p>Nome fantasia: <%= @supplier.brand_name %></p>
-<p>Endereço: <%= @supplier.full_address %></p>
-<p>CNPJ: <%= @supplier.registration_number %></p>
-<p>Cidade: <%= @supplier.city %></p>
-<p>Estado: <%= @supplier.state %></p>
-<p>Email: <%= @supplier.email %></p>
+<h1><%= Supplier.model_name.human %> <%= @supplier.registration_number %></h1>
+<p><%= Supplier.human_attribute_name(:corporate_name) %>: <%= @supplier.corporate_name %></p>
+<p><%= Supplier.human_attribute_name(:brand_name) %>: <%= @supplier.brand_name %></p>
+<p><%= Supplier.human_attribute_name(:full_address) %>: <%= @supplier.full_address %></p>
+<p><%= Supplier.human_attribute_name(:registration_number) %>: <%= @supplier.registration_number %></p>
+<p><%= Supplier.human_attribute_name(:city) %>: <%= @supplier.city %></p>
+<p><%= Supplier.human_attribute_name(:state) %>: <%= @supplier.state %></p>
+<p><%= Supplier.human_attribute_name(:email) %>: <%= @supplier.email %></p>
 
 
 <div>

@@ -62,7 +62,7 @@ describe 'Usuário cadastra um fornecedor' do
         expect(page).to have_content('Razão social não pode ficar em branco')
         expect(page).to have_content('Nome fantasia não pode ficar em branco')
         expect(page).to have_content('CNPJ não pode ficar em branco')
-        expect(page).to have_content('Endereço completo não pode ficar em branco')
+        expect(page).to have_content('Endereço não pode ficar em branco')
         expect(page).to have_content('Cidade não pode ficar em branco')
         expect(page).to have_content('Estado não pode ficar em branco')
         expect(page).to have_content('Email não pode ficar em branco')

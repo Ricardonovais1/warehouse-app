@@ -1,10 +1,10 @@
-<h1>Galpão <%= @warehouse.code %></h1>
-<p>Nome: <%= @warehouse.name %> </p>
-<p>Código: <%= @warehouse.code %> </p>
-<p>Cidade: <%= @warehouse.city %></p>
-<p>Área: <%= @warehouse.area %> m²</p>
+<h1><%= Warehouse.model_name.human %> <%= @warehouse.code %></h1>
+<p><%= Warehouse.human_attribute_name(:name) %>: <%= @warehouse.name %> </p>
+<p><%= Warehouse.human_attribute_name(:code) %>: <%= @warehouse.code %> </p>
+<p><%= Warehouse.human_attribute_name(:city) %>: <%= @warehouse.city %></p>
+<p><%= Warehouse.human_attribute_name(:area) %>: <%= @warehouse.area %> m²</p>
 <p>Endereço: <%= @warehouse.address %>, CEP: <%= @warehouse.cep %></p>
-<p>Descrição: <%= @warehouse.description %></p>
+<p><%= Warehouse.human_attribute_name(:description) %>: <%= @warehouse.description %></p>
 
 <div>
     <p><%= link_to('Editar Galpão', edit_warehouse_path(@warehouse.id)) %></p>
