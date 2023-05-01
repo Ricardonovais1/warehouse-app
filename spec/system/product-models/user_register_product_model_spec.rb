@@ -17,8 +17,10 @@ describe 'Usuário registra novo modelo de produto' do
                                 city: 'Nova Serrana',
                                 state: 'MG',
                                 email: 'sobral@sapatos.com' )
+    user = User.create!(name: 'Romualdo', email: 'romualdo@romualdo.com', password: 'password')
     # Act 
     visit root_path
+    login_as(user, :scope => :user)
     click_on 'Modelos de produtos'
     click_on 'Cadastrar modelo de produto'
     fill_in 'Nome', with: 'Melissa transparente'
@@ -49,8 +51,11 @@ describe 'Usuário registra novo modelo de produto' do
                                 city: 'Divinópolis',
                                 state: 'MG',
                                 email: 'mimosa@sapatos.com' )
+    user = User.create!(name: 'Romualdo', email: 'romualdo@romualdo.com', password: 'password')
+
     # Act 
     visit root_path
+    login_as(user, :scope => :user)
     click_on 'Modelos de produtos'
     click_on 'Cadastrar modelo de produto'
     fill_in 'Nome', with: ''

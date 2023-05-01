@@ -207,4 +207,16 @@ RSpec.describe Supplier, type: :model do
       end
     end
   end
+
+  describe '#full_description' do 
+    it 'com razão social e nome fantasia' do
+    # Arrange 
+    s = Supplier.new(corporate_name: 'Fábrica de bonecos SA', brand_name: 'Bonecos & CIA')
+    # Act 
+    result = s.full_description
+
+    # Assert 
+    expect(result).to eq 'Fábrica de bonecos SA - Bonecos & CIA'
+    end
+  end
 end

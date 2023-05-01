@@ -32,3 +32,4 @@ ProductModel.create!(name:'Soundbar 7.1 Sorround',
                      depth: 20, 
                      sku: 'SOU713-SAMSU-NOIZ777', 
                      supplier: x)
+
