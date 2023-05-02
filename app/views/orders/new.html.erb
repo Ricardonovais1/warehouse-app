@@ -1,9 +1,13 @@
 <h1>Registrar Pedido</h1>
 
 <% if @order.errors.any? %>
-  <%= @order.errors.full_messages.each do |msg| %>
-    <p><%= msg %></p>
-  <% end %>
+
+    <p>Verifique os erros abaixo:</p>
+        <ul>
+            <% @order.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>  
+            <% end %>
+        </ul>
 <% end %>
 
 <%= render 'form' %>
