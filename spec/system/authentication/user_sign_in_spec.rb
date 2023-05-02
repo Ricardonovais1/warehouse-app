@@ -7,7 +7,9 @@ describe 'Usuário faz login no sistema' do
 
     # Act 
     visit root_path 
-    click_on 'Entrar'
+    within('nav') do 
+      click_on 'Entrar'
+    end
     fill_in 'Email', with: 'ricardo@amigoviolao.com'
     fill_in 'Senha', with: 'password'
     within('form') do 

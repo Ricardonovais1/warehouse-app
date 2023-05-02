@@ -1,7 +1,9 @@
 pt-BR:
   activerecord:
     models:
-      product_model:  'Modelo de produto'
+      product_model:  
+        one: 'Modelo de produto'
+        other: 'Modelos de produto'
     attributes:
       product_model: 
         name: 'Nome'

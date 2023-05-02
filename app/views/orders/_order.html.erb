@@ -1,0 +1,4 @@
+  <p><%= Order.human_attribute_name(:code) %>: <%= link_to order.code, order %><p>
+  <p><%= Order.human_attribute_name(:warehouse) %>: <%= order.warehouse.name %><p>
+  <p><%= Order.human_attribute_name(:supplier) %>: <%= order.supplier.full_description %><p>
+  <p><%= Order.human_attribute_name(:user) %>: <%= order.user.name %> | <%= order.user.email %><p>

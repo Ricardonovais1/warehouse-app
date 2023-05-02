@@ -5,6 +5,6 @@ class Supplier < ApplicationRecord
   validates :registration_number, length: { is: 13 }
 
   def full_description 
-    "#{corporate_name} - #{brand_name}"
+    "#{corporate_name} | #{brand_name}"
   end
 end

@@ -216,7 +216,7 @@ RSpec.describe Supplier, type: :model do
     result = s.full_description
 
     # Assert 
-    expect(result).to eq 'Fábrica de bonecos SA - Bonecos & CIA'
+    expect(result).to eq 'Fábrica de bonecos SA | Bonecos & CIA'
     end
   end
 end

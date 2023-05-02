@@ -2,6 +2,10 @@
 
 <p><%= Order.human_attribute_name(:warehouse_id) %>: <%= @order.warehouse.name %></p>
 <p><%= Order.human_attribute_name(:supplier_id) %>: <%= @order.supplier.corporate_name %></p>
-<p>U<%= Order.human_attribute_name(:user_id) %>: <%= @order.user.name %> | <%= @order.user.email %></p>
+<p><%= Order.human_attribute_name(:user_id) %>: <%= @order.user.name %> | <%= @order.user.email %></p>
 <p><%= Order.human_attribute_name(:estimated_delivery_date) %>: <%= I18n.localize(@order.estimated_delivery_date) %></p>
+
+<div>
+  <%= link_to 'Editar', edit_order_path(@order.id) %>
+</div>
 

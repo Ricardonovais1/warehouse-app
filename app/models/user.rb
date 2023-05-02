@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :name, presence: true
 
+  has_many :orders
+
   def description 
     "#{email} | Olá #{name}!"
   end
