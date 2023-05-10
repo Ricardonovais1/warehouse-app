@@ -4,6 +4,21 @@
 <p><%= Order.human_attribute_name(:supplier_id) %>: <%= @order.supplier.corporate_name %></p>
 <p><%= Order.human_attribute_name(:user_id) %>: <%= @order.user.name %> | <%= @order.user.email %></p>
 <p><%= Order.human_attribute_name(:estimated_delivery_date) %>: <%= I18n.localize(@order.estimated_delivery_date) %></p>
+<p><%= Order.human_attribute_name(:status) %>: <%= I18n.t(@order.status) %></p>
+
+<h3><%= link_to 'Adicionar item', new_order_order_item_path(order_id: @order.id) %> </h3>
+
+<% if @order.order_items.any? %>
+  <h2>Itens do pedido:</h2>
+  <% @order.order_items.each do |oi| %>
+    <p><%= oi.quantity %> x <%= oi.product_model.name %></p>
+  <% end %>
+<% end %>
+
+<% if @order.pending? %>
+  <%= button_to 'Marcar como entregue', delivered_order_path(@order.id) %>
+  <%= button_to 'Cancelar pedido', canceled_order_path(@order.id) %>
+<% end %>
 
 <div>
   <%= link_to 'Editar', edit_order_path(@order.id) %>

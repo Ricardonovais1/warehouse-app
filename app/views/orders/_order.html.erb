@@ -2,3 +2,4 @@
   <p><%= Order.human_attribute_name(:warehouse) %>: <%= order.warehouse.name %><p>
   <p><%= Order.human_attribute_name(:supplier) %>: <%= order.supplier.full_description %><p>
   <p><%= Order.human_attribute_name(:user) %>: <%= order.user.name %> | <%= order.user.email %><p>
+  <p><%= Order.human_attribute_name(:status) %>: <%= I18n.t(order.status) %><p>

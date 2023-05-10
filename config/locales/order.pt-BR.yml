@@ -1,4 +1,7 @@
 pt-BR:
+  pending: 'Pendente'
+  delivered: 'Entregue'
+  canceled: 'Cancelado'
   activerecord:
     models:
       order: 
@@ -14,4 +17,6 @@ pt-BR:
         code: 'Código'
         user_id: 'Usuário Responsável'
         user: 'Usuário Responsável'
+        status: 'Situação do pedido'
+       
         

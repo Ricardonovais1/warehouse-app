@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController  
-  before_action :set_order, only: [:show, :edit, :update]
+  before_action :set_order, only: [:show, :edit, :update, :delivered, :canceled]
   before_action :authenticate_user!
 
   def index 
@@ -53,6 +53,16 @@ class OrdersController < ApplicationController
     if @order.update(set_params)
       redirect_to @order, notice: 'Pedido atualizado com sucesso'
     end
+  end
+
+  def delivered 
+    @order.update(status: :delivered)
+    redirect_to @order
+  end
+
+  def canceled 
+    @order.canceled!
+    redirect_to @order
   end
   
   private 

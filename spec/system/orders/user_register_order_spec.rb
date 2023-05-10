@@ -46,6 +46,7 @@ describe 'Usuário cadastra um pedido' do
     expect(page).to have_content 'Galpão Destino: Galpão Maceió'
     expect(page).to have_content 'Fornecedor: AV Guitars and Accessories'
     expect(page).to have_content 'Data prevista de entrega: 20/12/2029'
+    expect(page).to have_content 'Situação do pedido: Pendente'
     expect(page).to have_content 'Usuário Responsável: Sérgio | sergio@sergio.com'
     expect(page).not_to have_content 'Galpão Destino: Galpão Rio'
     expect(page).not_to have_content 'Fornecedor: Fábrica de bonecos SA'
