@@ -10,7 +10,7 @@ class Order < ApplicationRecord
   validates :code, :estimated_delivery_date, presence: true
   validate :estimated_delivery_date_is_true
 
-  before_validation :generate_code
+  before_validation :generate_code, on: :create
 
   private
 
@@ -23,4 +23,6 @@ class Order < ApplicationRecord
       self.errors.add(:estimated_delivery_date, ' deve ser futura')
     end
   end
+
+
 end

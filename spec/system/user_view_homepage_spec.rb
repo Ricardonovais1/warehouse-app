@@ -14,7 +14,6 @@ describe 'usuario visita tela inicial' do
 
     it 'e vê os galpões cadastrados' do 
         # Arrange 
-        # Cadastrar 2 galpões: Rio e Maceió
         Warehouse.create(name: 'Rio', code: 'SDU', city: 'Rio de Janeiro', area: 60_000,
                         address: 'Av. do Porto, 1000', cep: '20000-000', description: 'Galpão do Rio')
         Warehouse.create(name: 'Maceió', code: 'MCZ', city: 'Maceió', area: 50_000,
@@ -40,7 +39,6 @@ describe 'usuario visita tela inicial' do
 
     it 'e não existem galpões cadastrados' do
         # Arrange
-        # Apagar os galpões do teste anterior
 
         # Act
         visit root_path

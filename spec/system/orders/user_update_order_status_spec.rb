@@ -10,8 +10,12 @@ describe 'Usuário informa novo status de pedido' do
                             registration_number: 1234567891234, full_address: 'Rua das Palmeiras, 344', 
                             city: 'Belo Horizonte',
                             state: 'Minas Gerais', email: 'av@av.com')
+  product = ProductModel.create!(supplier: supplier, name: 'Cadeira Gamer', 
+                            weight: 5, width: 70, height: 60, depth: 50, sku: 'CAD71-CADSU-CADZ7700')
   order = Order.create!(user: user, warehouse: warehouse, supplier: supplier, 
-                            estimated_delivery_date: 1.day.from_now, status: 'pending')     
+                            estimated_delivery_date: 1.day.from_now, status: 'pending')   
+  item = OrderItem.create!(order: order, product_model: product, quantity: 5)
+  
   # Act 
   login_as(user)
   visit root_path
@@ -26,6 +30,9 @@ describe 'Usuário informa novo status de pedido' do
   expect(page).to have_content 'Situação do pedido: Entregue'
   expect(page).not_to have_button 'Marcar como entregue'
   expect(page).not_to have_button 'Cancelar pedido'
+  expect(StockProduct.count).to eq 5
+  estoque = StockProduct.where(warehouse: warehouse, product_model: product).count
+  expect(estoque).to eq 5
 
   end
 
@@ -38,8 +45,13 @@ describe 'Usuário informa novo status de pedido' do
                             registration_number: 1234567891234, full_address: 'Rua das Palmeiras, 344', 
                             city: 'Belo Horizonte',
                             state: 'Minas Gerais', email: 'av@av.com')
+  product = ProductModel.create!(supplier: supplier, name: 'Cadeira Gamer', 
+                            weight: 5, width: 70, height: 60, depth: 50, sku: 'CAD71-CADSU-CADZ7700')
   order = Order.create!(user: user, warehouse: warehouse, supplier: supplier, 
-                            estimated_delivery_date: 1.day.from_now, status: 'pending')     
+                            estimated_delivery_date: 1.day.from_now, status: 'pending')  
+  item = OrderItem.create!(order: order, product_model: product, quantity: 5)
+   
+  
   # Act 
   login_as(user)
   visit root_path
@@ -52,5 +64,7 @@ describe 'Usuário informa novo status de pedido' do
   # Assert
   expect(current_path).to eq order_path(order.id)
   expect(page).to have_content 'Situação do pedido: Cancelado'
+  estoque = StockProduct.where(warehouse: warehouse, product_model: product).count
+  expect(estoque).to eq 0  
   end
 end 

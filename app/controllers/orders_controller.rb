@@ -29,6 +29,7 @@ class OrdersController < ApplicationController
     if @order.user != current_user
       redirect_to root_path, alert: 'Você não possui acesso a este pedido'
     end
+    
   end
 
   def search 
@@ -56,7 +57,16 @@ class OrdersController < ApplicationController
   end
 
   def delivered 
-    @order.update(status: :delivered)
+    @order.delivered!
+
+    @order.order_items.each do |item|
+      item.quantity.times do 
+        StockProduct.create!(order: @order,
+                            product_model: item.product_model,
+                            warehouse: @order.warehouse)
+      end
+    end
+
     redirect_to @order
   end
 
